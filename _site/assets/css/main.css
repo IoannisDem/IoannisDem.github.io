@@ -36,6 +36,37 @@ section {
   display: block;
 }
 
+/* Center the navigation menu */
+nav.navigation {
+  text-align: center;
+  margin-top: 20px;
+}
+
+nav.navigation ul {
+  list-style-type: none; /* Remove bullet points */
+  padding: 0;
+  margin: 0;
+}
+
+nav.navigation ul li {
+  display: block; /* Change to block to stack vertically */
+  margin: 10px 0; /* Space between items */
+}
+
+nav.navigation ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.5em; /* Larger font size */
+  font-weight: bold;
+  display: inline-block; /* Ensure anchor takes block properties */
+}
+
+nav.navigation ul li a:hover {
+  color: #007acc; /* Change color on hover */
+}
+
+
+
 /**
  * Correct the font size and margin on `h1` elements within `section` and
  * `article` contexts in Chrome, Firefox, and Safari.

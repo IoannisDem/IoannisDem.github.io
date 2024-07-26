@@ -1,0 +1,20 @@
+---
+layout: main
+---
+<h1 class="page-section-header">Let's talk about a few projects</h1>
+
+{% for post in paginator.posts %}
+{% if post.ref == "interest" %}
+<article class="post">
+  {% if post.img %}
+    <a class="post-thumbnail" style="background-image: url({{"/assets/img/" | prepend: site.baseurl | append : post.img}})" href="{{post.url | prepend: site.baseurl}}"></a>
+  {% endif %}
+  <div class="post-content">
+    <h2 class="post-title"><a href="{{post.url | prepend: site.baseurl}}">{{post.title | markdownify}}</a></h2>
+    <p>{{ post.description | markdownify }}</p>
+  </div>
+</article>
+{% endif %}
+{% endfor %}
+
+{% include pagination.html %}
