@@ -1,11 +1,17 @@
 ---
 layout: main
 title: "Projects"
+permalink: /projects/
 ---
-<h1 class="page-section-header">Let's talk about a few projects</h1>
 
-{% for post in paginator.posts %}
-  {% if post.ref == "interest" %}
+<h1>Projects</h1>
+
+<!-- Debug Output -->
+
+{% assign projects_posts = site.posts | where: "categories", "projects" %}
+
+{% if projects_posts %}
+  {% for post in projects_posts %}
     <article class="post">
       {% if post.img %}
         <a class="post-thumbnail" style="background-image: url('{{ site.baseurl }}/assets/img/{{ post.img }}')" href="{{ post.url | prepend: site.baseurl }}"></a>
@@ -15,7 +21,9 @@ title: "Projects"
         <p>{{ post.description | markdownify }}</p>
       </div>
     </article>
-  {% endif %}
-{% endfor %}
+  {% endfor %}
+{% else %}
+  <p>No projects found.</p>
+{% endif %}
 
 {% include pagination.html %}
