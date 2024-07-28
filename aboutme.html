@@ -3,20 +3,50 @@ layout: main
 title: "Projects"
 permalink: /aboutme/
 ---
-<h1 class="page-section-header">Let's talk about a few projects</h1>
 
-{% for post in paginator.posts %}
-  {% if post.ref == "interest" %}
-    <article class="post">
-      {% if post.img %}
-        <a class="post-thumbnail" style="background-image: url('{{ site.baseurl }}/assets/img/{{ post.img }}')" href="{{ post.url | prepend: site.baseurl }}"></a>
-      {% endif %}
-      <div class="post-content">
-        <h2 class="post-title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title | markdownify }}</a></h2>
-        <p>{{ post.description | markdownify }}</p>
-      </div>
-    </article>
-  {% endif %}
-{% endfor %}
+<!-- Debug Output -->
+
+{% assign projects_posts = site.posts | where: "categories", "projects" %}
+
+{% if projects_posts.size > 0 %}
+  {% for post in projects_posts %}
+    <article class="article-page">
+      <div class="page-content">
+        {% if post.img %}
+        <div class="page-cover-image">
+          <figure>
+            <img class="page-image" src="{{ site.baseurl }}/assets/img/{{ post.img }}" alt="{{ post.title }}">
+            {% if post.fig-caption %}
+              <figcaption>{{ post.fig-caption }}</figcaption>
+            {% endif %}
+          </figure>
+        </div> <!-- End Page Cover Image -->
+        {% endif %}
+        <div class="wrap-content">
+          <header class="header-page">
+            <h1 class="page-title">{{ post.title }}</h1>
+            <div class="page-date"><span>{{ post.date | date: '%Y, %b %d' }}&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+          </header>
+          {{ post.content | markdownify }}
+          <div class="page-footer">
+            <div class="page-share">
+              <a href="https://twitter.com/intent/tweet?text={{ post.title }}&url={{ site.url }}{{ post.url }}" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+              <a href="https://facebook.com/sharer.php?u={{ site.url }}{{ post.url }}" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+              <a href="https://plus.google.com/share?url={{ site.url }}{{ post.url }}" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+            </div>
+            <div class="page-tag">
+              {% for tag in post.tags %}
+                <a href="{{ site.baseurl }}/tags#{{ tag }}" class="tag">&#35; {{ tag }}</a>
+              {% endfor %}
+            </div>
+          </div>
+          {% include disqus.html %}
+        </div> <!-- End Wrap Content -->
+      </div> <!-- End Page Content -->
+    </article> <!-- End Article Page -->
+  {% endfor %}
+{% else %}
+  <p>No projects found.</p>
+{% endif %}
 
 {% include pagination.html %}
