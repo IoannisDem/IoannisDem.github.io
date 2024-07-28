@@ -43,4 +43,8 @@
 <url>
 <loc>http://localhost:4000/tags/</loc>
 </url>
+<url>
+<loc>http://localhost:4000/cv.pdf</loc>
+<lastmod>2024-07-28T18:49:07+01:00</lastmod>
+</url>
 </urlset>

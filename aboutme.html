@@ -6,7 +6,7 @@ permalink: /aboutme/
 
 <!-- Debug Output -->
 
-{% assign projects_posts = site.posts | where: "categories", "projects" %}
+{% assign projects_posts = site.posts | where: "categories", "aboutme" %}
 
 {% if projects_posts.size > 0 %}
   {% for post in projects_posts %}
