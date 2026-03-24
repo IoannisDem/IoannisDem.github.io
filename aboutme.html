@@ -1,6 +1,6 @@
 ---
 layout: main
-title: "Projects"
+title: "About Me"
 permalink: /aboutme/
 ---
 
@@ -28,7 +28,7 @@ permalink: /aboutme/
             <div class="page-date"><span>{{ post.date | date: '%Y, %b %d' }}&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
           </header>
           {{ post.content | markdownify }}
-          <div class="page-footer">
+          <!-- <div class="page-footer">
             <div class="page-share">
               <a href="https://twitter.com/intent/tweet?text={{ post.title }}&url={{ site.url }}{{ post.url }}" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
               <a href="https://facebook.com/sharer.php?u={{ site.url }}{{ post.url }}" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
@@ -39,7 +39,7 @@ permalink: /aboutme/
                 <a href="{{ site.baseurl }}/tags#{{ tag }}" class="tag">&#35; {{ tag }}</a>
               {% endfor %}
             </div>
-          </div>
+          </div> -->
           {% include disqus.html %}
         </div> <!-- End Wrap Content -->
       </div> <!-- End Page Content -->
