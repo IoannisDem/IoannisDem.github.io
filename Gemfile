@@ -10,7 +10,7 @@
 
 source 'https://rubygems.org'
 
-ruby '2.7.0'  # Ensure this is a compatible version
+ruby '3.2.2'  # Ensure this is a compatible version
 
 gem 'jekyll', '~> 4.2'
 
